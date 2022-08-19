@@ -2,6 +2,7 @@
 title: "fiddler crab"
 format: html
 editor: visual
+echo: false
 ---
 
 ```{r}
@@ -12,7 +13,16 @@ library(tidyverse)
 Creating exploratory plot
 
 ```{r}
+#| fig-cap: "Fiddler Crab size (mm) by latitude in salt marshes"
+
 pie_crab |> 
   ggplot(aes(x = latitude, y = size)) +
   geom_point()
+```
+
+```{r}
+summary_table <-pie_crab |> 
+  group_by(site) |> summarize(mean = round(mean(size, na.rm = TRUE),2), 
+                              sd = round(sd(size),2),
+                              sample_size = n())
 ```
