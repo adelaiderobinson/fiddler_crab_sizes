@@ -8,6 +8,7 @@ echo: false
 ```{r}
 library(lterdatasampler)
 library(tidyverse)
+library(kableExtra)
 ```
 
 Creating exploratory plot
@@ -25,4 +26,17 @@ summary_table <-pie_crab |>
   group_by(site) |> summarize(mean = round(mean(size, na.rm = TRUE),2), 
                               sd = round(sd(size),2),
                               sample_size = n())
+
+```
+
+Making the table nicer
+
+```{r}
+
+summary_table |> 
+  kable(col.names = c("Site", 
+                      "Mean (mm)", 
+                      "SD (mm)", 
+                      "Sample Size")) |> 
+  kable_styling(bootstrap_options = "striped")
 ```
