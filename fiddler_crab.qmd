@@ -6,4 +6,13 @@ editor: visual
 
 ```{r}
 library(lterdatasampler)
+library(tidyverse)
+```
+
+Creating exploratory plot
+
+```{r}
+pie_crab |> 
+  ggplot(aes(x = latitude, y = size)) +
+  geom_point()
 ```
