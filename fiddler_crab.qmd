@@ -13,6 +13,6 @@ Creating exploratory plot
 
 ```{r}
 pie_crab |> 
-  ggplot(aes(x = size, y = latitude)) +
+  ggplot(aes(x = latitude, y = size)) +
   geom_point()
 ```
